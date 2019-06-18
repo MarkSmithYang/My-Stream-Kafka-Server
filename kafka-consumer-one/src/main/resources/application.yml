@@ -1,0 +1,19 @@
+#设置服务端口
+server:
+  port: 9901
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        #自定义输入通道名称
+        input_msg:
+          #加入消费组(同一个组的服务只能有一个能消费到消息)
+          group: Group-1
+          #这里为了对照不把它加入这个组,它就会每次都能消费消息了(发布订阅模式的特性),加入了组,就不一定能消费到了,
+          #实测加入同一个组的服务,会优先选择先启动的一直去消费,而不是切换服务去消费
+          #group: Group-1
+          #设置自定义输入通道的消费的主题
+          destination: topic-1

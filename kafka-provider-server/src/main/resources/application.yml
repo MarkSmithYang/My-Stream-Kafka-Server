@@ -1,0 +1,26 @@
+#设置服务端口
+server:
+  port: 9900
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        #自定义输出通道名称
+        output_msg:
+          #设置自定义输入通道的传输的数据是json格式
+          content-type: application/json
+          #设置自定义的通道接口的输出通道的主题(需要对应的输入接口配置相同的主题去消费,
+          #当然了不一定用自定义接口的输入通道去消费,可以用其他的去消费)
+          destination: topic-1
+        #Stream内置的输出通道名称
+        output:
+          #设置Stream内置输入通道的传输的数据是json格式
+          content-type: application/json
+          #设置自定义的通道接口的输出通道的主题(需要对应的输入接口配置相同的主题去消费,
+          #当然了不一定用自定义接口的输入通道去消费,可以用其他的去消费)
+          destination: topic-2
+
+

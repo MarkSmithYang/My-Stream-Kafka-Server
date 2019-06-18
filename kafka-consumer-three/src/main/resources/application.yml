@@ -1,0 +1,33 @@
+#设置服务端口
+server:
+  port: 9903
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          auto-add-partitions: true
+          #最小的分区数
+          min-partition-count: 2
+          transaction:
+            producer:
+              #分区键(这个应该和id主键功能类似)
+              partition-key-expression: consumer-three
+      #消费实例数
+      instance-count: 1
+      #设置当前实例的索引值(默认是0)
+      instance-index: 1
+      bindings:
+        #自定义输入通道名称
+        input_msg:
+          #这里为了对照不把它加入这个组,它就会每次都能消费消息了(发布订阅模式的特性),加入了组,就不一定能消费到了,
+          #实测加入同一个组的服务,会优先选择先启动的一直去消费,而不是切换服务去消费
+          #group: Group-1
+          #设置自定义输入通道的消费的主题
+          destination: topic-1
+        #Stream内置输入通道名称-----这里设置为自定义的输出通道的主题,用来消费自定义的消息
+        input:
+          #设置自定义输入通道的消费的主题
+          destination: topic-1
+

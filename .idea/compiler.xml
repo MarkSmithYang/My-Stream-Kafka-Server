@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="kafka-consumer-one" />
+        <module name="stream-kafka-server" />
+        <module name="kafka-provider-server" />
+        <module name="kafka-common" />
+        <module name="kafka-consumer-two" />
+        <module name="kafka-consumer-three" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="kafka-common" options="-parameters" />
+      <module name="kafka-consumer-one" options="-parameters" />
+      <module name="kafka-consumer-three" options="-parameters" />
+      <module name="kafka-consumer-two" options="-parameters" />
+      <module name="kafka-provider-server" options="-parameters" />
+      <module name="stream-kafka-server" options="-parameters" />
+    </option>
+  </component>
+</project>
