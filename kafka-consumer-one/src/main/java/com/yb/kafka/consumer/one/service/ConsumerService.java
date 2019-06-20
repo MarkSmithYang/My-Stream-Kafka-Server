@@ -7,6 +7,7 @@ import org.springframework.cloud.stream.messaging.Processor;
 import org.springframework.messaging.handler.annotation.Payload;
 
 /**
+ * 可通过配置group的方式来配置消费服务启动之前为消费的消息,不配置则之前消息无法消费(丢失)
  * 这个@EnableBinding注解实测是必不可少的,否则无法消费
  *
  * @author biaoyang

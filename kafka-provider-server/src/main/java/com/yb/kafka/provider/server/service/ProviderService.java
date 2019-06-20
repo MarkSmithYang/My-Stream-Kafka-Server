@@ -23,6 +23,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
+ * 可通过配置group的方式来配置消费服务启动之前为消费的消息,不配置则之前消息无法消费(丢失)
  * @author biaoyang
  */
 @EnableScheduling
