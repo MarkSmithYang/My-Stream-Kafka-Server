@@ -23,4 +23,13 @@ public class ConsumerService {
         System.err.println("消费者One消费=="+message);
     }
 
+    /**
+     * 注解埋点的操作日志推送消息消费
+     * @param message
+     */
+    @StreamListener(Processor.INPUT)
+    public void getLogMessage(@Payload String message) {
+        System.err.println("操作日志被One消费=="+message);
+    }
+
 }
